@@ -103,3 +103,10 @@ BL31_SOURCES		+=	drivers/arm/cci400/cci400.c		\
 				plat/hikey/plat_topology.c
 
 NEED_BL30		:=	yes
+
+# Enable TZRAM size 64 MB
+ifeq ($(CFG_TZRAM_SIZE),64)
+$(info CFG_TZRAM_SIZE=64, enable TZRAM size 64 MB)
+$(eval $(call add_define,HIKEY_TZRAM_64MB))
+endif
+

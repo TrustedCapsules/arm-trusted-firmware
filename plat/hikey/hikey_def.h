@@ -52,7 +52,11 @@
  *   - Secure DRAM (4MB aligned on 4MB) for OP-TEE's "Secure Data Path" feature
  *   - Non-Secure DRAM (remaining DRAM starting at DRAM_BASE)
  */
+#ifdef HIKEY_TZRAM_64MB
+#define DRAM_SEC_SIZE			0x04000000
+#else
 #define DRAM_SEC_SIZE			0x01000000
+#endif /* HIKEY_TZRAM_64MB */
 #define DRAM_SEC_BASE			(DRAM_BASE + DRAM_SIZE - DRAM_SEC_SIZE)
 
 #define DRAM_SDP_SIZE			0x00400000

@@ -266,6 +266,9 @@ CFLAGS			+=	-ffunction-sections -fdata-sections		\
 LDFLAGS			+=	--fatal-warnings -O1
 LDFLAGS			+=	--gc-sections
 
+ifeq ($(CFG_TZRAM_SIZE),64)
+	CFLAGS += -DHIKEY_TZRAM_64MB
+endif
 
 CC			:=	${CROSS_COMPILE}gcc
 CPP			:=	${CROSS_COMPILE}cpp

@@ -176,7 +176,11 @@
 /*******************************************************************************
  * Load address of BL3-3 in the HiKey port
  ******************************************************************************/
+#ifdef HIKEY_TZRAM_64MB
+#define HIKEY_NS_IMAGE_OFFSET		(DRAM_BASE + 0x32000000)
+#else
 #define NS_IMAGE_OFFSET			(DRAM_BASE + 0x35000000)  /* 848MB */
+#endif /* HIKEY_TZRAM_64MB */
 
 /*******************************************************************************
  * Platform specific page table and MMU setup constants
